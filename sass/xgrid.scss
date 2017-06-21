@@ -1,0 +1,253 @@
+/**
+*
+* Flex Grid
+* Version: 1.0 Beta
+* Date: 06/07/2017
+* Created By: James Karl Quiño
+*
+**/
+
+.xgrid {
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -5px;
+    
+    /** Flex Grid Gutter **/ 
+    &.large-gutter {
+        margin: 0 -10px;
+        
+        [class*="xcol"] {
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+    }
+    
+    &.no-gutter {
+        margin: 0;
+        
+        [class*="xcol"] {
+            padding: 0;
+            margin: 0;
+        }
+    }
+    
+    /** Flex Grid Format **/
+    
+    &.left-grid {
+        justify-content: flex-start;
+    }
+    
+    &.right-grid {
+        justify-content: flex-end;
+    }
+    
+    &.center-grid {
+        justify-content: center;
+    }
+    
+    &.space-around-grid {
+        justify-content: space-around;
+    }
+    
+    &.space-between-grid {
+        justify-content: space-between;
+    }
+    
+    &.top-grid {
+        align-items: flex-start;
+    }
+    
+    &.bottom-grid {
+        align-items: flex-end;
+    }
+    
+    &.vcenter-grid {
+        align-items: center;
+    }
+    
+    &.vspace-around-grid {
+        align-items: space-around;
+    }
+    
+    &.vspace-between-grid {
+        align-items: space-between;
+    }
+    
+    /** Flex Grid Direction **/
+    &.horizontal-grid {
+        flex-direction: row;
+    }
+    &.horizontal-reverse-grid {
+        flex-direction: row-reverse;
+    }
+    
+    &.vertical-grid {
+        flex-direction: column;
+    }
+    
+    &.vertical-reverse-grid {
+        flex-direction: column-reverse;
+    }
+    
+    /** Flex Columns (1 - 12) **/
+    
+    [class*="xcol"] {
+        box-sizing: border-box;
+        -webkit-flex: 1 0 auto;
+        -moz-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        padding: 0 5px;
+        margin-bottom: 10px;
+    
+        /** Text Alignment **/
+        &.left-col {
+            text-align: left;
+        }
+
+        &.center-col {
+            text-align: center;
+        }
+
+        &.right-col {
+            text-align: right;
+        }
+    }
+    
+    @for $i from 1 through 12 {
+        .xcol-lg-#{$i} {
+            flex-basis: calc(8.33333333333% * #{$i});
+            max-width: calc(8.33333333333% * #{$i});
+        }
+        
+        .xcol-md-#{$i} {
+            flex-basis: calc(8.33333333333% * #{$i});
+            max-width: calc(8.33333333333% * #{$i});
+        }
+        
+        .xcol-sm-#{$i} {
+            flex-basis: calc(8.33333333333% * #{$i});
+            max-width: calc(8.33333333333% * #{$i});
+        }
+        
+        .xcol-xs-#{$i} {
+            flex-basis: calc(8.33333333333% * #{$i});
+            max-width: calc(8.33333333333% * #{$i});
+        }
+        
+        .xcol-ir-#{$i} {
+            flex-basis: calc(8.33333333333% * #{$i});
+            max-width: calc(8.33333333333% * #{$i});
+        }
+    }
+}
+
+/** 
+*
+* Flex Media Queries
+* lg = 1200
+* md = 991
+* sm = 767
+* xs = 480
+* ir = 320 Iphone Retina
+*
+**/
+
+$mq-ir: 320px;
+$mq-xsmall: 480px;
+$mq-small: 767px;
+$mq-medium: 991px;
+$mq-large: 1200px;
+
+@media only screen and (max-width: $mq-large) {
+    
+    .xgrid {
+    
+        @for $i from 1 through 12 {
+            .xcol-lg-#{$i} {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .xcol-lg {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: $mq-medium) {
+    
+    .xgrid {
+    
+        @for $i from 1 through 12 {
+            .xcol-md-#{$i} {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .xcol-md {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: $mq-small) {
+    .xgrid {
+    
+        @for $i from 1 through 12 {
+            .xcol-sm-#{$i} {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .xcol-sm {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }   
+}
+
+@media only screen and (max-width: $mq-xsmall) {
+    .xgrid {
+    
+        @for $i from 1 through 12 {
+            .xcol-xs-#{$i} {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .xcol-xs {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: $mq-ir) {
+    
+    .xgrid {
+    
+        @for $i from 1 through 12 {
+            .xcol-ir-#{$i} {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .xcol-ir {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }   
+}
+
